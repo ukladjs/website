@@ -14,19 +14,19 @@ const props = [
     icon: <SearchIcon size={20} />,
     tag: 'retrieval',
     title: 'Indexed by design',
-    copy: 'Event, sub, and effect IDs live in *-ids.ts files — a built-in index of everything your app can do. Agents find the exact handler with one exact-match grep instead of scanning the codebase.',
+    copy: 'Every event, subscription, and effect id is declared in one catalog.ts — a built-in index of everything your app can do. Agents find the exact handler with one exact-match grep instead of scanning the codebase.',
   },
   {
     icon: <PuzzleIcon size={20} />,
     tag: 'blast radius',
     title: 'Pure handlers, bounded review',
-    copy: 'Every state change is a pure function of the db and a payload; side effects come out as data. Verifying a change means reading one function — not tracing a call graph across the app.',
+    copy: 'Every state change is a pure function of the state and a payload; side effects come out as data. Verifying a change means reading one function — not tracing a call graph across the app.',
   },
   {
     icon: <ShieldIcon size={20} />,
     tag: 'feedback',
     title: 'The compiler reviews first',
-    copy: 'Opt-in typed payload maps check every dispatch against its handler signature. A wrong payload is a compile error — the cheapest verification signal an agent can get, long before runtime.',
+    copy: 'An opt-in AppContracts interface checks every dispatch and subscription against one source of truth. A wrong payload is a compile error — the cheapest verification signal an agent can get, long before runtime.',
   },
   {
     icon: <DebugIcon size={20} />,
@@ -43,8 +43,8 @@ const props = [
   {
     icon: <ReplayIcon size={20} />,
     tag: 'determinism',
-    title: 'Deterministic replay',
-    copy: 'One semantic event log reproduces the entire app state. Debugging sessions and regression tests become replays, not archaeology.',
+    title: 'Deterministic by construction',
+    copy: 'Environment inputs — clock, randomness, storage — arrive as coeffects, and every test or agent sandbox owns an isolated runtime. Same events, same state, with no package-global store to reset between runs.',
   },
 ]
 

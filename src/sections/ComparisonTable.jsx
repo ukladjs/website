@@ -32,14 +32,14 @@ const rows = [
   {
     label: 'Debuggability',
     others: 'Redux: DevTools track actions/state diffs. Zustand: Limited devtools',
-    uklad: 'Built-in event tracing, db snapshots, and live dependency visualization via Uklad DevTools',
+    uklad: 'Built-in event tracing, state snapshots, and live dependency visualization via Uklad DevTools',
     why: 'Full-system X-ray: every event, effect, and subscription exposed in real time — plus an MCP server so AI agents can debug alongside you',
   },
   {
     label: 'Testing',
     others: 'Redux: Reducers are testable, but async and effects complicate tests. Zustand: unit tests only',
-    uklad: 'Pure events and declarative effects allow full replay and snapshot testing',
-    why: 'Deterministic replay: event logs reproduce complete app state, simplifying regression and snapshot testing',
+    uklad: 'Pure events and declarative effects test headlessly, with an isolated runtime per test',
+    why: 'No shared globals: each test owns its state, handlers, and injected coeffects, so suites run in parallel without reset hooks or cross-test leakage',
   },
   {
     label: 'Scalability',

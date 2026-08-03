@@ -6,7 +6,7 @@ const classics = [
   {
     stamp: 'HUMAN TESTED',
     title: 'Predictable events',
-    copy: 'All state transitions run through pure events and interceptors, giving you replayable, inspectable updates. Business logic stays pure; effects are explicit. Behavior stays auditable and testable at scale.',
+    copy: 'All state transitions run through pure events and interceptors, giving you reproducible, inspectable updates. Business logic stays pure; effects are explicit. Behavior stays auditable and testable at scale.',
   },
   {
     stamp: '100% ARTISANAL',

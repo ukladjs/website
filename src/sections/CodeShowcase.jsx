@@ -45,7 +45,7 @@ export function CodeShowcase() {
         <SectionHeader
           eyebrow="show me the code"
           title="Six building blocks. Zero magic to hallucinate."
-          subtitle="A real TodoMVC with HTTP persistence and TypeScript types. Events are data, effects are data, subscriptions are a graph — explicit enough for readers made of neurons or weights."
+          subtitle="A real TodoMVC — indexed ids, typed contracts, pure handlers, and one HTTP effect. Events are data, effects are data, subscriptions are a graph — explicit enough for readers made of neurons or weights."
         />
 
         <Reveal className="code-showcase">

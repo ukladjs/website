@@ -11,18 +11,20 @@ const agentLoop = [
 ]
 
 const outcomeSnippet = `// agent, via DevTools MCP:
-dispatch_event(["todos/toggle", 42])
+dispatch_event("todos/toggle-done", [42])
 
 // ← the runtime answers, same round trip:
 {
   "outcome": "succeeded",
-  "duration": 1.8,
-  "patches": [
+  "event": "todos/toggle-done",
+  "duration": "1.8ms",
+  "stateChanges": [
     { "op": "replace",
-      "path": ["todos", 42, "done"],
+      "path": ["todosById", 42, "done"],
       "value": true }
   ],
-  "effects": []
+  "effectsEmitted": [],
+  "traceId": "evt_8f21"
 }`
 
 export function AgentLoop() {
