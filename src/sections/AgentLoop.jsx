@@ -2,10 +2,10 @@ import { CodeBlock, CodeWindow } from '../components/CodeBlock.jsx'
 import { Reveal } from '../components/Reveal.jsx'
 import { SectionHeader } from '../components/SectionHeader.jsx'
 
-const appLoop = ['dispatch', 'interceptors', 'pure handler', 'new db', 'subscriptions', 'render']
+const appLoop = ['dispatch', 'interceptors', 'pure handler', 'new state', 'subscriptions', 'render']
 
 const agentLoop = [
-  { step: 'observe', detail: 'get_app_state · get_traces' },
+  { step: 'observe', detail: 'get_state · get_traces' },
   { step: 'act', detail: 'dispatch_event' },
   { step: 'verify', detail: 'outcome + state patches' },
 ]
@@ -32,7 +32,7 @@ export function AgentLoop() {
         <SectionHeader
           eyebrow="the loop"
           title="Two loops. One architecture."
-          subtitle="Your app runs a unidirectional event loop. Your agent runs an observe–act–verify loop. Reflex DevTools MCP is where they meet: dispatch an event, get the outcome and the exact state diff back — no guessing, no screenshot folklore."
+          subtitle="Your app runs a unidirectional event loop. Your agent runs an observe–act–verify loop. Uklad DevTools MCP is where they meet: dispatch an event, get the outcome and the exact state diff back — no guessing, no screenshot folklore."
         />
 
         <div className="loop-panel">
@@ -48,7 +48,7 @@ export function AgentLoop() {
 
           <Reveal delay={120} className="loop-meet">
             <span className="loop-meet__line" aria-hidden="true" />
-            <span className="loop-meet__badge">reflex devtools mcp</span>
+            <span className="loop-meet__badge">uklad devtools mcp</span>
             <span className="loop-meet__line" aria-hidden="true" />
           </Reveal>
 

@@ -6,40 +6,40 @@ import { PersonIcon, RobotIcon } from '../components/icons.jsx'
 const agentSteps = [
   {
     title: 'Install the agent toolkit',
-    copy: 'One plugin, installed once, works across every repo. It gives Claude Code and Codex the whole Reflex workflow: skills, MCP config, and setup instructions.',
+    copy: 'One plugin, installed once, works across every repo. It gives Claude Code and Codex the whole Uklad workflow: skills, MCP config, and setup instructions.',
     lang: 'text',
-    code: 'Claude Code:\n/plugin marketplace add flexsurfer/reflex-agent-toolkit\n/plugin install reflex-agent-toolkit@reflex-agent-toolkit\n\nCodex:\ncodex plugin marketplace add flexsurfer/reflex-agent-toolkit\nthen /plugins → install "Reflex Agent Toolkit"',
+    code: 'Claude Code:\n/plugin marketplace add ukladjs/agent-toolkit\n/plugin install uklad-agent-toolkit@ukladjs\n\nCodex:\ncodex plugin marketplace add ukladjs/agent-toolkit\nthen /plugins → install "Uklad Agent Toolkit"',
   },
   {
     title: 'Say what you want',
-    copy: 'That\'s the whole setup. The agent does the rest itself — installs Reflex + DevTools, wires tracing, starts the MCP loop, and verifies its own work with dispatch_event.',
+    copy: 'That\'s the whole setup. The agent does the rest itself — installs Uklad + DevTools, wires tracing, starts the MCP loop, and verifies its own work with dispatch_event.',
     lang: 'markdown',
-    code: '> Create a new beautiful app with Reflex.\n\n> Migrate this app\'s state management to Reflex.\n\n> Add notifications and verify they work.',
+    code: '> Create a new beautiful app with Uklad.\n\n> Migrate this app\'s state management to Uklad.\n\n> Add notifications and verify they work.',
   },
 ]
 const humanSteps = [
   {
     title: 'Install',
     lang: 'bash',
-    code: 'npm install @flexsurfer/reflex',
+    code: 'npm install @ukladjs/core',
   },
   {
-    title: 'Initialize your app',
-    copy: 'Bootstrap the app database, register an event, create a subscription.',
+    title: 'Create a runtime',
+    copy: 'One runtime owns its state, handlers, and reactive graph. A module groups registrations so they can be disposed together.',
     lang: 'typescript',
-    code: "import { initAppDb, regEvent, regSub } from '@flexsurfer/reflex'\n\ninitAppDb({ counter: 0 })\nregEvent('increment', ({ draftDb }) => {\n  draftDb.counter += 1\n})\nregSub('counter')",
+    code: "import { createUkladRuntime } from '@ukladjs/core/vanilla'\n\nconst runtime = createUkladRuntime({\n  initialState: { counter: 0 },\n  runtimeId: 'counter-app',\n  name: 'Counter app',\n})\n\nruntime.registerModule((scope) => {\n  scope.regEvent('counter/increment', ({ draftState }) => {\n    draftState.counter += 1\n  })\n  scope.regRootSub('counter/value', 'counter')\n})",
   },
   {
     title: 'Use it in a component',
-    copy: 'Subscribe to data, dispatch intent. That is the whole component contract.',
+    copy: 'Subscribe to data, dispatch intent. Hooks read the runtime from the provider — there is no package-global store.',
     lang: 'typescript',
-    code: "import { useSubscription, dispatch } from '@flexsurfer/reflex'\n\nfunction Counter() {\n  const count = useSubscription(['counter'])\n  return (\n    <button onClick={() => dispatch(['increment'])}>\n      Count: {count}\n    </button>\n  )\n}",
+    code: "import { UkladProvider, useSubscription } from '@ukladjs/core/react'\n\nfunction Counter() {\n  const count = useSubscription(['counter/value'])\n  return (\n    <button onClick={() => runtime.dispatch(['counter/increment'])}>\n      Count: {count}\n    </button>\n  )\n}\n\nexport function App() {\n  return (\n    <UkladProvider runtime={runtime}>\n      <Counter />\n    </UkladProvider>\n  )\n}",
   },
   {
     title: 'Add devtools when curious',
-    copy: 'Time travel, event history, and the live subscription graph — pleasant for humans, essential for agents.',
-    lang: 'bash',
-    code: 'npx reflex-devtools',
+    copy: 'Event history, live state, and the subscription graph — pleasant for humans, essential for agents.',
+    lang: 'typescript',
+    code: "// npm install -D @ukladjs/devtools, then run: npx uklad-devtools\nimport { enableDevtools } from '@ukladjs/devtools'\nimport { createUkladInspector } from '@ukladjs/core/devtools'\n\nif (import.meta.env.DEV) {\n  enableDevtools(createUkladInspector(runtime))\n}",
   },
 ]
 

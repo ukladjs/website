@@ -22,12 +22,12 @@ const classics = [
 
 const manual = [
   {
-    title: 'Initialize your app db',
-    copy: 'Define the single source of truth once via initAppDb. Everything else queries or transforms the db.',
+    title: 'Create a runtime',
+    copy: 'One runtime owns its state, handlers, and reactive graph. Create one per app root, test, SSR request, or agent sandbox — there is no package-global store.',
   },
   {
     title: 'Register events',
-    copy: 'Events are pure reducers that optionally return side effects. They run through interceptors before mutating the draft db.',
+    copy: 'Events are pure reducers that mutate an Immer draft and optionally return effects as data. They run through interceptors before the state is committed.',
   },
   {
     title: 'Register and use subscriptions',
@@ -51,8 +51,8 @@ export function HumanMode() {
           </p>
           <img
             className="human__crest"
-            src={`${import.meta.env.BASE_URL}reflex_logo_trimmed.png`}
-            alt="Original Reflex logo"
+            src={`${import.meta.env.BASE_URL}uklad_logo.png`}
+            alt="Original Uklad logo"
           />
           <h2 className="human__title">
             Still typing code <em>by hand?</em>
@@ -61,7 +61,7 @@ export function HumanMode() {
           </h2>
           <p className="human__sub">
             Before agents, there were humans — remarkable creatures with keyboards, strong opinions,
-            and forty-seven browser tabs. The original Reflex pitch is preserved below, unretouched.
+            and forty-seven browser tabs. The original Uklad pitch is preserved below, unretouched.
             It all still works. Splendidly.
           </p>
         </Reveal>
@@ -86,7 +86,7 @@ export function HumanMode() {
               <div className="crt__screen">
                 <iframe
                   src="https://www.youtube.com/embed/xwv5SwlF4Dg"
-                  title="Building production-ready apps with AI confidently using the Reflex architecture"
+                  title="Building production-ready apps with AI confidently using the Uklad architecture"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
                 />
@@ -96,7 +96,7 @@ export function HumanMode() {
             </div>
             <div className="crt__panel">
               <span className="crt__brand">
-                Reflex<span className="crt__brand-vision">VISION</span>
+                Uklad<span className="crt__brand-vision">VISION</span>
               </span>
               <span className="crt__badge">COLOR</span>
               <div className="crt__knobs">
@@ -139,7 +139,7 @@ export function HumanMode() {
 
         <Reveal className="human__fineprint">
           <p>
-            Fine print: everything that makes Reflex legible to agents — pure functions, explicit
+            Fine print: everything that makes Uklad legible to agents — pure functions, explicit
             effects, one event log — is exactly what makes it kind to human brains. That was the
             point all along.
           </p>

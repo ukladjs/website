@@ -33,23 +33,13 @@ jobs:
       - name: Build landing page
         run: npm run build
 
-      - name: Build VitePress docs
-        run: npm run docs:build
-
-      - name: Combine builds
-        run: |
-          mkdir -p dist-final
-          cp -r dist/* dist-final/
-          mkdir -p dist-final/docs
-          cp -r docs/.vitepress/dist/* dist-final/docs/
-
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dist-final
+          path: dist
 
   deploy:
     environment:

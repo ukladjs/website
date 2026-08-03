@@ -3,7 +3,7 @@ import { NoFate } from '../components/NoFate.jsx'
 import { Terminal } from '../components/Terminal.jsx'
 import { ArrowRightIcon, DocsIcon, GitHubIcon } from '../components/icons.jsx'
 
-const INSTALL = 'npm install @flexsurfer/reflex'
+const INSTALL = 'npm install @ukladjs/core'
 
 export function Hero() {
   return (
@@ -20,7 +20,7 @@ export function Hero() {
         </h1>
 
         <p className="hero__copy">
-          Reflex gives your AI agent an architecture it can actually drive — indexed, pure,
+          Uklad gives your AI agent an architecture it can actually drive — indexed, pure,
           and typed, with a runtime it can query, act on, and verify.
           One event loop for your app, one feedback loop for your agent.{' '}
           <em
@@ -36,13 +36,13 @@ export function Hero() {
             Start building
             <ArrowRightIcon size={16} />
           </a>
-          <a className="btn btn--ghost" href="https://github.com/flexsurfer/reflex" target="_blank" rel="noreferrer">
+          <a className="btn btn--ghost" href="https://github.com/ukladjs/uklad" target="_blank" rel="noreferrer">
             <GitHubIcon size={16} />
             GitHub
           </a>
-          <a className="btn btn--ghost" href="/docs/">
+          <a className="btn btn--ghost" href="https://github.com/ukladjs/agent-toolkit" target="_blank" rel="noreferrer">
             <DocsIcon size={16} />
-            Docs
+            Agent toolkit
           </a>
         </div>
 
@@ -55,7 +55,7 @@ export function Hero() {
 
         <Terminal />
         <p className="hero__caption">
-          Not a mockup of the vibe — the actual workflow. Reflex DevTools MCP lets the agent
+          Not a mockup of the vibe — the actual workflow. Uklad DevTools MCP lets the agent
           dispatch events and read back the outcome with state patches, in one round trip.
         </p>
       </div>

@@ -2,7 +2,7 @@ import { CopyButton } from '../components/CopyButton.jsx'
 import { Reveal } from '../components/Reveal.jsx'
 import { ArrowRightIcon, GitHubIcon } from '../components/icons.jsx'
 
-const INSTALL = 'npm install @flexsurfer/reflex'
+const INSTALL = 'npm install @ukladjs/core'
 
 export function CallToAction() {
   return (
@@ -19,11 +19,11 @@ export function CallToAction() {
             You get to review one pure function at a time — and keep your weekends.
           </p>
           <div className="cta__actions">
-            <a className="btn btn--primary" href="/docs/">
-              Read the docs
+            <a className="btn btn--primary" href="https://github.com/ukladjs/agent-toolkit" target="_blank" rel="noreferrer">
+              Get the agent toolkit
               <ArrowRightIcon size={16} />
             </a>
-            <a className="btn btn--ghost" href="https://github.com/flexsurfer/reflex" target="_blank" rel="noreferrer">
+            <a className="btn btn--ghost" href="https://github.com/ukladjs/uklad" target="_blank" rel="noreferrer">
               <GitHubIcon size={16} />
               Star on GitHub
             </a>
