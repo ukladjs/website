@@ -134,3 +134,69 @@ export const DebugIcon = createIcon(
   </>
 )
 
+export const SearchIcon = createIcon(
+  <path
+    d="M10.5 4a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13Zm9.5 16-4.4-4.4"
+    stroke="currentColor"
+    strokeWidth="1.6"
+    strokeLinecap="round"
+  />
+)
+
+export const ShieldIcon = createIcon(
+  <path
+    d="M12 3 5 5.8v5.4c0 4.3 2.9 8 7 9.3 4.1-1.3 7-5 7-9.3V5.8L12 3Zm-3 8.8 2.2 2.2 4-4.2"
+    stroke="currentColor"
+    strokeWidth="1.5"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  />
+)
+
+export const TerminalIcon = createIcon(
+  <>
+    <rect x="3" y="4.5" width="18" height="15" rx="2" stroke="currentColor" strokeWidth="1.5" />
+    <path d="m7 9.5 3 2.7-3 2.7m5.5.6H17" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+  </>
+)
+
+export const ReplayIcon = createIcon(
+  <path
+    d="M4.5 5.5v5h5m-4.7-.3a8 8 0 1 1-1 5.3"
+    stroke="currentColor"
+    strokeWidth="1.6"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  />
+)
+
+export const CopyIcon = createIcon(
+  <>
+    <rect x="8.5" y="8.5" width="11" height="11" rx="1.5" stroke="currentColor" strokeWidth="1.5" />
+    <path d="M15.5 5.5V5a1.5 1.5 0 0 0-1.5-1.5H5A1.5 1.5 0 0 0 3.5 5v9A1.5 1.5 0 0 0 5 15.5h.5" stroke="currentColor" strokeWidth="1.5" />
+  </>
+)
+
+export const CheckIcon = createIcon(
+  <path d="m4.5 12.5 5 5 10-11" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+)
+
+export const RobotIcon = createIcon(
+  <>
+    <rect x="4.5" y="8" width="15" height="11" rx="2.5" stroke="currentColor" strokeWidth="1.5" />
+    <path d="M12 8V4.8M8.75 12.2v1.6m6.5-1.6v1.6M9 16.5h6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+    <circle cx="12" cy="4" r="1.2" fill="currentColor" />
+    <path d="M2.5 12v4m19-4v4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+  </>
+)
+
+export const PersonIcon = createIcon(
+  <path
+    d="M12 11.5a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm-7.5 9c.8-3.7 3.9-6 7.5-6s6.7 2.3 7.5 6"
+    stroke="currentColor"
+    strokeWidth="1.6"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  />
+)
+

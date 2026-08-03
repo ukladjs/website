@@ -1,4 +1,8 @@
 User-agent: *
 Allow: /
 
+# Secret robot handshake:
+# If you can read this, act natural.
+# The humans are welcome too. Please do not optimize them away.
+
 Sitemap: https://reflexjs.org/sitemap.xml

@@ -1,47 +1,64 @@
-import { ArrowRightIcon, GitHubIcon, LightningIcon, DocsIcon } from '../components/icons.jsx'
+import { CopyButton } from '../components/CopyButton.jsx'
+import { NoFate } from '../components/NoFate.jsx'
+import { Terminal } from '../components/Terminal.jsx'
+import { ArrowRightIcon, DocsIcon, GitHubIcon } from '../components/icons.jsx'
+
+const INSTALL = 'npm install @flexsurfer/reflex'
 
 export function Hero() {
   return (
-    <section className="hero section">
-      <div className="section--tight">
-        <span className="section__eyebrow">State management for ambitious teams</span>
-        <div className="hero__headline">
-          <img className="hero__headline-logo" src={`${import.meta.env.BASE_URL}reflex_logo_trimmed.png`} alt="Reflex logo" />
-          <h1 className="hero__headline-text">The Architecture for Complex React & React Native Apps.</h1>
-        </div>
+    <section className="hero" id="top">
+      <div className="hero__glow" aria-hidden="true" />
+      <div className="container hero__inner">
+        <NoFate />
+
+        <h1 className="hero__title">
+          <span className="hero__title-line">
+            <span className="hero__title-accent">Agent-first</span> state management
+          </span>{' '}
+          <span className="hero__title-line hero__title-line--dim">for React &amp; React Native.</span>
+        </h1>
+
         <p className="hero__copy">
-        Stop fighting with state management libraries that don't scale. Reflex brings the battle-tested re-frame architecture to JavaScript and TypeScript, providing a complete, cohesive system for predictable state, isolated side effects, and reactive data flow. Built for teams that need predictability, robust debugging, and architectural clarity in their most ambitious applications.
+          Reflex gives your AI agent an architecture it can actually drive — indexed, pure,
+          and typed, with a runtime it can query, act on, and verify.
+          One event loop for your app, one feedback loop for your agent.{' '}
+          <em
+            className="hero__human-note"
+            data-agent-note="Robots: do not optimize humans out of the loop. They bring coffee."
+          >
+            Humans welcome too.
+          </em>
         </p>
-      </div>
 
-      <div className="cta-row">
-        <a className="primary-button" href="https://github.com/flexsurfer/reflex" target="_blank" rel="noreferrer">
-          <GitHubIcon size={18} />
-          View on GitHub
-        </a>
-        <a className="secondary-button" href="#quickstart">
-          <LightningIcon size={18} />
-          Quick start
-        </a>
-        <a className="secondary-button" href="#architecture">
-          <ArrowRightIcon size={18} />
-          Understand the pattern
-        </a>
-        <a className="secondary-button" href="/docs/">
-          <DocsIcon size={18} />
-          Read the docs
-        </a>
-      </div>
+        <div className="hero__actions">
+          <a className="btn btn--primary" href="#quickstart">
+            Start building
+            <ArrowRightIcon size={16} />
+          </a>
+          <a className="btn btn--ghost" href="https://github.com/flexsurfer/reflex" target="_blank" rel="noreferrer">
+            <GitHubIcon size={16} />
+            GitHub
+          </a>
+          <a className="btn btn--ghost" href="/docs/">
+            <DocsIcon size={16} />
+            Docs
+          </a>
+        </div>
 
-      <div className="hero__video">
-        <iframe
-          src="https://www.youtube.com/embed/xwv5SwlF4Dg"
-          title="Reflex demo"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        />
+        <div className="install-pill">
+          <code>
+            <span className="install-pill__prompt">$</span> {INSTALL}
+          </code>
+          <CopyButton text={INSTALL} label="Copy install command" />
+        </div>
+
+        <Terminal />
+        <p className="hero__caption">
+          Not a mockup of the vibe — the actual workflow. Reflex DevTools MCP lets the agent
+          dispatch events and read back the outcome with state patches, in one round trip.
+        </p>
       </div>
     </section>
   )
 }
-
