@@ -1,34 +1,54 @@
 :root {
   color-scheme: dark;
 
-  /* Brand — from the three logo chevrons */
-  --coral: #ff6b4a;
-  --green: #3fd97e;
-  --sky: #4dbdff;
-  --gradient-brand: linear-gradient(100deg, var(--coral) 0%, var(--green) 52%, var(--sky) 100%);
+  /* Brand — one blue, ramped.
+     #164A8E is the mark's core; #1E58AA and #10346C are its sanctioned
+     neighbours. The lighter steps are derived so the same hue stays legible
+     on a near-black surface. */
+  --brand-900: #0a2149;
+  --brand-800: #10346c;
+  --brand-700: #164a8e;
+  --brand-600: #1e58aa;
+  --brand-500: #2a70ce;
+  --brand-400: #4b8de8;
+  --brand-300: #7fb0f5;
+  --brand-200: #b4d2fb;
+  --brand-100: #dceafe;
 
-  /* Surfaces */
-  --bg: #07070a;
-  --bg-raise: #0c0c12;
-  --bg-window: #0b0b10;
-  --surface: rgba(255, 255, 255, 0.035);
-  --surface-hover: rgba(255, 255, 255, 0.065);
-  --border: rgba(255, 255, 255, 0.09);
-  --border-strong: rgba(255, 255, 255, 0.18);
+  --brand: var(--brand-700);
+  --brand-lift: var(--brand-600);
+  --brand-deep: var(--brand-800);
+
+  /* Light-to-core sweep, so clipped text stays readable on dark */
+  --gradient-brand: linear-gradient(98deg, #b4d2fb 0%, #6ba6f2 44%, #2a70ce 100%);
+  --gradient-hairline: linear-gradient(90deg, transparent, rgba(180, 210, 251, 0.32), transparent);
+
+  /* Surfaces — dark with a cold cast, never neutral black */
+  --bg: #05070c;
+  --bg-raise: #090d16;
+  --bg-window: #070a11;
+  --surface: rgba(125, 165, 235, 0.045);
+  --surface-hover: rgba(125, 165, 235, 0.085);
+  --border: rgba(133, 172, 234, 0.13);
+  --border-strong: rgba(133, 172, 234, 0.28);
+  --glow: rgba(42, 112, 206, 0.4);
 
   /* Ink */
-  --text-1: #f5f5f7;
-  --text-2: #b9b9c6;
-  --text-3: #82828f;
+  --text-1: #edf1f8;
+  --text-2: #a6b2c8;
+  --text-3: #6c7a92;
 
-  /* Paper (human mode) */
-  --paper: #f5efe2;
-  --paper-raise: #fbf7ee;
-  --paper-ink: #241d15;
-  --paper-soft: #6e6151;
-  --paper-line: rgba(36, 29, 21, 0.18);
-  --paper-rust: #b0512b;
-  --paper-moss: #4d7a52;
+  /* Functional — the only non-brand hue, reserved for "it passed" */
+  --ok: #3ecf8e;
+
+  /* Paper (human mode) — warm stock, navy ink, blue rubber stamps */
+  --paper: #f3efe6;
+  --paper-raise: #faf7f0;
+  --paper-ink: #17223a;
+  --paper-soft: #55617a;
+  --paper-line: rgba(23, 34, 58, 0.16);
+  --paper-stamp: #164a8e;
+  --paper-lamp: #c0442e;
 
   /* Type */
   --font-display: 'Space Grotesk', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -66,19 +86,34 @@ body {
   overscroll-behavior: none;
 }
 
-/* Faint blueprint grid behind everything */
+/* The mark is a 3×3 grid; so is the page it sits on. Nine small cells make
+   one large one, tinted brand-blue and fading out below the fold. */
 body::before {
   content: '';
   position: fixed;
   inset: 0;
-  z-index: -1;
+  z-index: -2;
   pointer-events: none;
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
-  background-size: 64px 64px;
-  mask-image: radial-gradient(ellipse 90% 60% at 50% 0%, black 30%, transparent 75%);
-  -webkit-mask-image: radial-gradient(ellipse 90% 60% at 50% 0%, black 30%, transparent 75%);
+    linear-gradient(rgba(125, 165, 235, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(125, 165, 235, 0.05) 1px, transparent 1px),
+    linear-gradient(rgba(125, 165, 235, 0.11) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(125, 165, 235, 0.11) 1px, transparent 1px);
+  background-size: 36px 36px, 36px 36px, 108px 108px, 108px 108px;
+  mask-image: radial-gradient(ellipse 95% 62% at 50% 0%, black 22%, transparent 76%);
+  -webkit-mask-image: radial-gradient(ellipse 95% 62% at 50% 0%, black 22%, transparent 76%);
+}
+
+/* A cold wash of brand light behind the whole page */
+body::after {
+  content: '';
+  position: fixed;
+  inset: -25% -10% auto;
+  height: 65%;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(50% 55% at 50% 0%, rgba(30, 88, 170, 0.22), transparent 70%);
+  filter: blur(30px);
 }
 
 a {
@@ -86,12 +121,33 @@ a {
 }
 
 ::selection {
-  background: rgba(255, 107, 74, 0.35);
+  background: rgba(42, 112, 206, 0.42);
   color: #fff;
 }
 
+::-webkit-scrollbar {
+  width: 11px;
+  height: 11px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(133, 172, 234, 0.18);
+  border: 3px solid transparent;
+  background-clip: padding-box;
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(133, 172, 234, 0.32);
+  background-clip: padding-box;
+}
+
 :focus-visible {
-  outline: 2px solid var(--sky);
+  outline: 2px solid var(--brand-300);
   outline-offset: 3px;
   border-radius: 4px;
 }
